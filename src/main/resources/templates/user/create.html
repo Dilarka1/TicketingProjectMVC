@@ -26,15 +26,135 @@
 
                             <section class="panel panel-transparent">
                                 <header class="panel-heading">
-                                    <h2 class="panel-title">Project Create</h2>
+                                    <h2 class="panel-title">User Create</h2>
                                 </header>
 
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form>
+                                    <form class="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="col-form-label">First Name</label>
+                                                    <input id="firstname" type="text" placeholder="First Name"
+                                                           class="form-control"
+                                                           required="required">
+                                                    <div class="invalid-feedback">
+                                                        Please enter first name
+                                                    </div>
+                                                </div>
+                                            </div>
 
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastname" class="col-form-label">Last Name</label>
+                                                    <input id="lastname" type="text" placeholder="Last Name"
+                                                           class="form-control"
+                                                           required="required">
+                                                    <div class="invalid-feedback">
+                                                        Please enter last name
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="emailaddress" class="col-form-label">Email
+                                                        Address</label>
+                                                    <input id="emailaddress" type="text" placeholder="Email"
+                                                           class="form-control"
+                                                           required="required">
+                                                    <div class="invalid-feedback">
+                                                        Please enter email
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phonenumber" class="col-form-label">Phone Number</label>
+                                                    <input id="phonenumber" type="tel" placeholder="Phone Number"
+                                                           class="form-control" pattern="^\d{10}$"
+                                                           required="required">
+                                                    <div class="invalid-feedback">
+                                                        Please enter 10 digits phone number
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input id="password" type="password" placeholder="Password"
+                                                           class="form-control" pattern="(?=.*\d)(?=.*[A-Z]).{4,}"
+                                                           required="required">
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase
+                                                        letter, and at least 4 or more characters
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="repassword" class="col-form-label">Confirm
+                                                        Password</label>
+                                                    <input id="repassword" type="password"
+                                                           placeholder="Confirm Your Password"
+                                                           class="form-control" pattern="(?=.*\d)(?=.*[A-Z]).{4,}"
+                                                           required="required">
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase
+                                                        letter, and at least 4 or more characters
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Gender</label><br>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" name="radio-inline" checked=""
+                                                               class="custom-control-input"><span
+                                                            class="custom-control-label">Male</span>
+                                                    </label>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" name="radio-inline"
+                                                               class="custom-control-input"><span
+                                                            class="custom-control-label">Female</span>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Choose a Role</label>
+                                                    <select name="roleid" id="roleid" class="custom-select"
+                                                            required="required">
+                                                        <option value="select" selected="selected">Select</option>
+                                                        <option value="admin">Admin</option>
+                                                        <option value="manager">Manager</option>
+                                                        <option value="employee">Employee</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-12">
+                                                <div class="float-right">
+                                                    <button class="btn btn-success" type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </form>
                                     <!-- ------------------------FORM END----------------------------- -->
 
@@ -61,19 +181,77 @@
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped">
-                                            <thead>
-                                            <tr>
-                                                <th scope="col"></th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">E-Mail(username)</th>
+                                                    <th scope="col">Gender</th>
+                                                    <th scope="col">Phone</th>
+                                                    <th scope="col">Role</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Ozzy</td>
+                                                    <td>ozzy@cybertekeschool.com</td>
+                                                    <td>Male</td>
+                                                    <td>123-456-78-90</td>
+                                                    <td>Employee</td>
+                                                    <td class="actions">
+                                                        <a href="">
+                                                            <button type="button" class="btn btn-warning btn-sm">
+                                                                Update
+                                                            </button>
+                                                        </a>
+                                                        <a href="" class="delete-row">
+                                                            <button type="button" class="btn btn-secondary btn-sm">
+                                                                Delete
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton@mail.ru</td>
+                                                    <td>Male</td>
+                                                    <td>098-765-43-21</td>
+                                                    <td>Employee</td>
+                                                    <td class="actions">
+                                                        <a href="">
+                                                            <button type="button" class="btn btn-warning btn-sm">
+                                                                Update
+                                                            </button>
+                                                        </a>
+                                                        <a href="" class="delete-row">
+                                                            <button type="button" class="btn btn-secondary btn-sm">
+                                                                Delete
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Linda</td>
+                                                    <td>Bird@mail.gov</td>
+                                                    <td>Female</td>
+                                                    <td>123-456-78-90</td>
+                                                    <td>Employee</td>
+                                                    <td class="actions">
+                                                        <a href="">
+                                                            <button type="button" class="btn btn-warning btn-sm">
+                                                                Update
+                                                            </button>
+                                                        </a>
+                                                        <a href="" class="delete-row">
+                                                            <button type="button" class="btn btn-secondary btn-sm">
+                                                                Delete
+                                                            </button>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                     </div>
                                 </div>
                             </section>
