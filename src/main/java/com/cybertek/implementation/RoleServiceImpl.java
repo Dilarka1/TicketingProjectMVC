@@ -3,18 +3,21 @@ package com.cybertek.implementation;
 
 import com.cybertek.dto.RoleDTO;
 import com.cybertek.service.RoleService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class RoleServiceImpl extends AstractMapService<RoleDTO, Long> implements RoleService {
+@Service
+public class RoleServiceImpl extends AbstractMapService<RoleDTO, Long> implements RoleService {
+
     @Override
     public List<RoleDTO> findAll() {
         return super.findAll();
     }
 
     @Override
-    public void deleteByID(Long id) {
-        deleteByID(id);
+    public void deleteById(Long id) {
+        deleteById(id);
 
     }
 
@@ -29,7 +32,7 @@ public class RoleServiceImpl extends AstractMapService<RoleDTO, Long> implements
     }
 
     @Override
-    public RoleDTO findByID(Long id) {
-        return super.findByID(id);
+    public RoleDTO findById(Long id) {
+        return super.findById(id);
     }
 }

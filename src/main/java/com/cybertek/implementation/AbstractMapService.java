@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AstractMapService<T, ID> {
+public abstract class AbstractMapService<T, ID> {
 
     protected Map<ID, T> map = new HashMap<>();
 
@@ -18,7 +18,7 @@ public abstract class AstractMapService<T, ID> {
         return new ArrayList<>(map.values());
     }
 
-        T findByID(ID id){
+        T findById(ID id){
         return map.get(id);
     }
 
