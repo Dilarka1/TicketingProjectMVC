@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: header"></head>
+
+<body>
+
+<div class="dashboard-main-wrapper">
+
+    <div th:replace="/fragments/header :: header"></div>
+
+    <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="dashboard-ecommerce">
+
+            <div class="container-fluid dashboard-content">
+
+                <div class="ecommerce-widget">
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-12">
+
+                            <section class="panel panel-transparent">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Project Create</h2>
+                                </header>
+
+                                <div class="panel-body">
+
+
+
+
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-6">
+                    <form>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="projectname" class="col-form-label">Project Name</label>
+                                    <input id="projectname" type="text" class="form-control"
+                                           required="required">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="projectcode" class="col-form-label">Project Code</label>
+                                    <input id="projectcode" type="text" class="form-control"
+                                           required="required">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label>Assigned Manager</label>
+                                    <select name="roleid" id="roleid" class="custom-select" required="required">
+                                        <option value="select" selected="selected">Select</option>
+                                        <option value="admin">Ozzy</option>
+                                        <option value="manager">Jacob</option>
+                                        <option value="employee">Linda</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3">
+                                <div class="form-group">
+                                    <label for="start">Project Start Date</label><br>
+
+                                    <input type="date" id="start" name="trip-start"
+                                           value="mm/dd/yyyy"
+                                           min="2000-01-01" max="2030-12-31">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <div class="form-group">
+                                    <label for="start">Project End Date</label><br>
+
+                                    <input type="date" id="end" name="trip-start"
+                                           value="mm/dd/yyyy"
+                                           min="2000-01-01" max="2030-12-31">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="projectdetails" class="col-form-label">Project Details</label>
+                                    <textarea class="form-control" id="projectdetails" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div class="float-right">
+                                    <button type="button" class="btn btn-success">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">Project List</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Project Code</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Start/End Date</th>
+                            <th scope="col">Manager</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>PRJ001</td>
+                            <td>Human Resources CRM</td>
+                            <td>11.03.2020-11.09.2020</td>
+                            <td>Donald Duck</td>
+                            <td>In Progress</td>
+                            <td class="actions">
+                                <a href="">
+                                    <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                </a>
+                                <a href="" class="delete-row">
+                                    <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                </a>
+                                <a href="" class="-row">
+                                    <button type="button" class="btn btn-info btn-sm">Complete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PRJ007</td>
+                            <td>IT Department</td>
+                            <td>11.11.2020-12.12.2020</td>
+                            <td>Mickey Mouse</td>
+                            <td>In Progress</td>
+                            <td class="actions">
+                                <a href="">
+                                    <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                </a>
+                                <a href="" class="delete-row">
+                                    <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                </a>
+                                <a href="" class="-row">
+                                    <button type="button" class="btn btn-info btn-sm">Complete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PRJ04</td>
+                            <td>Black Friday</td>
+                            <td>11.11.2020-11.29.2020</td>
+                            <td>Jack Sparrow</td>
+                            <td>In Progress</td>
+                            <td class="actions">
+                                <a href="">
+                                    <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                </a>
+                                <a href="" class="delete-row">
+                                    <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                </a>
+                                <a href="" class="-row">
+                                    <button type="button" class="btn btn-info btn-sm">Complete</button>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- footer -->
+                    <footer class="page-footer font-small blue fixed-bottom">
+                        <div class="footer-copyright text-center py-3">© 2020 Cybertek – All Rights Reserved</div>
+                    </footer>
+
+                </div>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- end basic form  -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- end main wrapper  -->
+<!-- ============================================================== -->
+<!-- Optional JavaScript -->
+<!-- jquery 3.3.1 -->
+<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<!-- bootstap bundle js -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="assets/libs/js/main-js.js"></script>
+<!-- chart chartist js -->
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<!-- sparkline js -->
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- morris js -->
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+<!-- chart c3 js -->
+<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+<script src="assets/libs/js/dashboard-ecommerce.js"></script>
+</body>
+</html>
