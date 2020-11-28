@@ -36,11 +36,11 @@ public class UserController {
 
         userService.save(user);
 
-        model.addAttribute("user", new UserDTO());
-        model.addAttribute("roles", roleService.findAll());
-        model.addAttribute("users", userService.findAll());
+//        model.addAttribute("user", new UserDTO());
+//        model.addAttribute("roles", roleService.findAll());
+//        model.addAttribute("users", userService.findAll());
 
-        return "user/create";
+        return "redirect:/user/create";
 
     }
 
@@ -60,11 +60,19 @@ public class UserController {
 
         userService.update(user);
 
-        model.addAttribute("user", new UserDTO());
-        model.addAttribute("roles", roleService.findAll());
-        model.addAttribute("users", userService.findAll());
-        
-        return "user/create";
+//        model.addAttribute("user", new UserDTO());
+//        model.addAttribute("roles", roleService.findAll());
+//        model.addAttribute("users", userService.findAll());
 
+        return "redirect:/user/create";
+
+    }
+
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String username) {
+
+        userService.deleteById(username);
+
+        return "redirect:/user/create";
     }
 }
