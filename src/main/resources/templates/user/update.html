@@ -17,7 +17,7 @@
                                 </header>
                                 <div class="panel-body">
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate th:action="@{/user/create}" method="post"
+                                    <form class="needs-validation" novalidate th:action="@{/user/update/{id}(id=${user.userName})}" method="post"
                                           th:object="${user}">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
@@ -127,7 +127,7 @@
                                                             required="required">
                                                         <option th:value=" ''" th:text="Select"></option>
                                                         <option th:each="role : ${roles}" th:value="${role.id}"
-                                                                th:text="${role.description}"></option>
+                                                                th:text="${role.description}" th:selected="${role.id} == ${user.role.id}"></option>
                                                     </select>
                                                 </div>
                                             </div>

@@ -22,17 +22,17 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/create")
-    public String createUser(Model model){
+    public String createUser(Model model) {
 
-        model.addAttribute("user",new UserDTO());
-        model.addAttribute("roles",roleService.findAll());
-        model.addAttribute("users",userService.findAll());
+        model.addAttribute("user", new UserDTO());
+        model.addAttribute("roles", roleService.findAll());
+        model.addAttribute("users", userService.findAll());
 
         return "/user/create";
     }
 
     @PostMapping("create")
-    public String insertUser(UserDTO user, Model model){
+    public String insertUser(UserDTO user, Model model) {
 
         userService.save(user);
 
@@ -43,15 +43,26 @@ public class UserController {
         return "user/create";
 
     }
-}
 
-/*
-rejected value [RoleDTO(id=2, description=Manager)];
-codes [typeMismatch.userDTO.role.id,typeMismatch.role.id,typeMismatch.id,
-typeMismatch.java.lang.Long,typeMismatch];
-arguments [org.springframework.context.support.DefaultMessageSourceResolvable:
-codes [userDTO.role.id,role.id]; arguments []; default message [role.id]];
-default message [Failed to convert property value of type 'java.lang.String'
- to required type 'java.lang.Long' for property 'role.id'; nested exception
- is java.lang.NumberFormatException: For input string: "RoleDTO(id=2,description=Manager)"]
- */
+    @GetMapping("/update/{username}")
+    public String editUser(@PathVariable("username") String username, Model model) {
+
+        model.addAttribute("user", userService.findById(username));
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("roles", roleService.findAll());
+
+        return "/user/update";
+
+    }
+
+    @PostMapping("/update/{username}")
+    public String updateUser(@PathVariable("username") String username, Model model) {
+
+        model.addAttribute("user", new UserDTO());
+        model.addAttribute("roles", roleService.findAll());
+        model.addAttribute("users", userService.findAll());
+        
+        return "user/create";
+
+    }
+}
