@@ -1,20 +1,32 @@
 package com.cybertek.bootstrap;
 
+import com.cybertek.dto.ProjectDTO;
 import com.cybertek.dto.RoleDTO;
 import com.cybertek.dto.UserDTO;
 import com.cybertek.implementation.RoleServiceImpl;
+import com.cybertek.service.ProjectService;
 import com.cybertek.service.RoleService;
 import com.cybertek.service.UserService;
 import com.cybertek.utils.Gender;
+import com.cybertek.utils.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
 
     RoleService roleService;
     UserService userService;
+    ProjectService projectService;
+
+    public DataGenerator(RoleService roleService, UserService userService, ProjectService projectService) {
+        this.roleService = roleService;
+        this.userService = userService;
+        this.projectService = projectService;
+    }
 
     @Autowired
     public DataGenerator(RoleService roleService, UserService userService) {
@@ -45,23 +57,19 @@ public class DataGenerator implements CommandLineRunner {
                 "Hayns", "S001@cybertek.com", "123", true, "3256987412", employeeRole, Gender.MALE);
 
 
-        /*
-rejected value [RoleDTO(id=2, description=Manager)];
-codes [typeMismatch.userDTO.role.id,typeMismatch.role.id,typeMismatch.id,
-typeMismatch.java.lang.Long,typeMismatch];
-arguments [org.springframework.context.support.DefaultMessageSourceResolvable:
-codes [userDTO.role.id,role.id]; arguments []; default message [role.id]];
-default message [Failed to convert property value of type 'java.lang.String'
- to required type 'java.lang.Long' for property 'role.id'; nested exception
- is java.lang.NumberFormatException: For input string: "RoleDTO(id=2,description=Manager)"]
- */
-
-
         userService.save(user1);
         userService.save(user2);
         userService.save(user3);
         userService.save(user4);
         userService.save(user5);
 
+
+        ProjectDTO project1 = new ProjectDTO("Spring MVC", "PR001", user1, LocalDate.now(), LocalDate.now().plusDays(25), "Creating Controllers", Status.OPEN);
+        ProjectDTO project2 = new ProjectDTO("Spring ORM", "PR002", user2, LocalDate.now(), LocalDate.now().plusDays(10), "Creating Database", Status.IN_PROGRESS);
+        ProjectDTO project3 = new ProjectDTO("Spring Container", "PR003", user3, LocalDate.now(), LocalDate.now().plusDays(32), "Creating Container", Status.UAT_TEST);
+
+        projectService.save(project1);
+        projectService.save(project2);
+        projectService.save(project3);
     }
 }
