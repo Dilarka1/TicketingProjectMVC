@@ -31,214 +31,141 @@
 
                                 <div class="panel-body">
 
+                                    <!-- ------------------------FORM START----------------------------- -->
 
-                                    <form class="needs-validation" novalidate th:action="@{/project/create}"
-                                          method="post" th:object="${project}">
+                                    <form class="needs-validation" novalidate th:action="@{/project/create}" method="post" th:object="${project}">
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-12">
+                                            <div class="col">
                                                 <div class="form-group">
-                                                    <label for="projectname" class="col-form-label">Project Name</label>
-                                                    <input id="projectname" type="text" class="form-control"
-                                                           placeholder="project name" th:field="*{projectName}"
-                                                           required="required">
+                                                    <label class="col-form-label">Project Name</label>
+                                                    <input id="projectname" type="text" placeholder="project name" th:field="*{projectName}" class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter project name.</div>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-12">
+                                            <div class="col">
                                                 <div class="form-group">
-                                                    <label for="projectcode" class="col-form-label">Project Code</label>
-                                                    <input id="projectcode" type="text" class="form-control"
-                                                           placeholder="project code" th:field="*{projectCode}"
-                                                           required="required">
+                                                    <label class="col-form-label">Project Code</label>
+                                                    <input id="projectcode" type="text" placeholder="project code" th:field="*{projectCode}" class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter project code.</div>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                         <div class="row">
-
-                                            <div class="col-sm-12 col-md-12">
+                                            <div class="col">
                                                 <div class="form-group">
                                                     <label>Assigned Manager</label>
-                                                    <select name="roleid" id="roleid" th:field="*{assignedManager}"
-                                                            class="custom-select"
-                                                            required="required">
+                                                    <select th:field="*{assignedManager}" class="custom-select" required="required">
                                                         <option th:value=" ''" th:text="Select"></option>
-                                                        <option th:each="manager : ${managers}"
-                                                                th:value="${manager.userName}"
-                                                                th:text="${manager.firstName + ' ' + manager.lastName}"></option>
+                                                        <option th:each="manager : ${managers}" th:value="${manager.userName}" th:text="${manager.firstName + ' ' + manager.lastName}"></option>
                                                     </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-3">
-                                                <div class="form-group">
-                                                    <label for="start">Project Start Date</label><br>
-
-                                                    <input type="date" id="start" name="trip-start"
-                                                           th:field="*{startDate}"
-                                                           value="mm/dd/yyyy"
-                                                           min="2000-01-01" max="2030-12-31">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3 col-md-3">
-                                                <div class="form-group">
-                                                    <label for="start">Project End Date</label><br>
-
-                                                    <input type="date" id="end" name="trip-start" th:field="*{endDate}"
-                                                           value="mm/dd/yyyy"
-                                                           min="2000-01-01" max="2030-12-31">
+                                                    <div class="invalid-feedback">Please choose manager</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-12">
+                                            <div class="col">
                                                 <div class="form-group">
-                                                    <label for="projectdetails" class="col-form-label">Project
-                                                        Details</label>
-                                                    <textarea class="form-control" id="projectdetails"
-                                                              th:field="*{projectDetail}" rows="3"></textarea>
+                                                    <label>Project Start Date</label>
+                                                    <input type="date" th:field="*{startDate}" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Project End Date</label>
+                                                    <input type="date" th:field="*{endDate}" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Project Detail</label>
+                                                    <textarea class="form-control" th:field="*{projectDetail}"required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
                                                 <div class="float-right">
-                                                    <button type="button" class="btn btn-success">Save</button>
+                                                    <button class="btn btn-success rounded-0" type="submit">Save</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
+                                    <!-- ------------------------FORM END----------------------------- -->
+
                                 </div>
 
-                                <div class="col-lg-12 col-sm-12">
-                                    <div class="row">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <div class="page-header">
-                                                <h2 class="pageheader-title">Project List</h2>
-                                            </div>
-                                        </div>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ------------------------TABLE START----------------------------- -->
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col-md-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">User List</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Project Code</th>
+                                                <th scope="col">Project Name</th>
+                                                <th scope="col">Start - End Date</th>
+                                                <th scope="col">Manager</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="project : ${projects}">
+                                                <td th:text="${project.projectCode}"></td>
+                                                <td th:text="${project.projectName}"></td>
+                                                <td th:text="${#temporals.format(project.startDate,'MM.dd.yyyy') + ' - ' + #temporals.format(project.endDate,'MM.dd.yyyy')}"></td>
+                                                <td th:text="${project.assignedManager.firstName + ' ' + project.assignedManager.lastName}"></td>
+                                                <td th:text="${project.projectStatus}"></td>
+                                                <td>
+                                                    <a th:href="@{/project/update/{id}(id=${project.getProjectCode()})}"class="btn btn-warning rounded-0">Update</a>
+                                                    <a th:href="@{/project/delete/{id}(id=${project.getProjectCode()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/project/complete/{id}(id=${project.getProjectCode()})}"class="btn btn-info rounded-0">Complete</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-
-                                    <table class="table table-striped">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col">Project Code</th>
-                                            <th scope="col">Project Name</th>
-                                            <th scope="col">Start - End Date</th>
-                                            <th scope="col">Manager</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr th:each="project : ${projects}">
-                                            <td th:text="${project.projectCode}"></td>
-                                            <td th:text="${project.projectName}"></td>
-                                            <td th:text="${#temporals.format(project.startDate, 'MM.dd.yyyy')+ ' - ' + #temporals.format(project.endDate, 'MM.dd.yyyy')}"></td>
-                                            <td th:text="${project.assignedManager.firstName + ' ' + project.assignedManager.lastName}"></td>
-                                            <td th:text="${project.projectStatus}"></td>
-
-                                            <td class="actions">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-warning btn-sm">Update</button>
-                                                </a>
-                                                <a href="" class="delete-row">
-                                                    <button type="button" class="btn btn-secondary btn-sm">Delete
-                                                    </button>
-                                                </a>
-                                                <a href="" class="-row">
-                                                    <button type="button" class="btn btn-info btn-sm">Complete</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>PRJ007</td>
-                                            <td>IT Department</td>
-                                            <td>11.11.2020-12.12.2020</td>
-                                            <td>Mickey Mouse</td>
-                                            <td>In Progress</td>
-                                            <td class="actions">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-warning btn-sm">Update</button>
-                                                </a>
-                                                <a href="" class="delete-row">
-                                                    <button type="button" class="btn btn-secondary btn-sm">Delete
-                                                    </button>
-                                                </a>
-                                                <a href="" class="-row">
-                                                    <button type="button" class="btn btn-info btn-sm">Complete</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>PRJ04</td>
-                                            <td>Black Friday</td>
-                                            <td>11.11.2020-11.29.2020</td>
-                                            <td>Jack Sparrow</td>
-                                            <td>In Progress</td>
-                                            <td class="actions">
-                                                <a href="">
-                                                    <button type="button" class="btn btn-warning btn-sm">Update</button>
-                                                </a>
-                                                <a href="" class="delete-row">
-                                                    <button type="button" class="btn btn-secondary btn-sm">Delete
-                                                    </button>
-                                                </a>
-                                                <a href="" class="-row">
-                                                    <button type="button" class="btn btn-info btn-sm">Complete</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <!-- footer -->
-                                    <footer class="page-footer font-small blue fixed-bottom">
-                                        <div class="footer-copyright text-center py-3">© 2020 Cybertek – All Rights
-                                            Reserved
-                                        </div>
-                                    </footer>
                                 </div>
                             </section>
                         </div>
                     </div>
                 </div>
+
+                <!-- ------------------------TABLE END----------------------------- -->
+
             </div>
+
         </div>
+
     </div>
+
+    <div th:replace="/fragments/footer :: footer"></div>
+
 </div>
 
-<!-- ============================================================== -->
-<!-- end basic form  -->
-<!-- ============================================================== -->
+<div th:replace="/fragments/javascript :: js"></div>
 
-<!-- Optional JavaScript -->
-<!-- jquery 3.3.1 -->
-<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-<!-- bootstap bundle js -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-<!-- slimscroll js -->
-<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-<!-- main js -->
-<script src="assets/libs/js/main-js.js"></script>
-<!-- chart chartist js -->
-<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-<!-- sparkline js -->
-<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-<!-- morris js -->
-<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-<!-- chart c3 js -->
-<script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-<script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-<script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-<script src="assets/libs/js/dashboard-ecommerce.js"></script>
 </body>
+
 </html>
