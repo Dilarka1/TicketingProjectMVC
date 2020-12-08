@@ -12,6 +12,6 @@ public class PendingController {
     @GetMapping("/pending")
     public String createPending(Model model) {
 
-        return "pending1";
+        return "employee/pending";
     }
 }
