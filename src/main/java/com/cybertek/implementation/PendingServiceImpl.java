@@ -1,30 +1,27 @@
 package com.cybertek.implementation;
 
-import com.cybertek.dto.PendingDTO;
 import com.cybertek.dto.TaskDTO;
 import com.cybertek.service.PendingService;
-import com.cybertek.service.TaskService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class PendingServiceImpl extends AbstractMapService<PendingDTO, Long> implements PendingService {
+public class PendingServiceImpl extends AbstractMapService<TaskDTO, Long> implements PendingService {
 
     @Override
-    public List<PendingDTO> findAll() {
+    public List<TaskDTO> findAll() {
         return super.findAll();
     }
 
     @Override
-    public PendingDTO save(PendingDTO object) {
+    public TaskDTO save(TaskDTO object) {
 
         return super.save(object.getId(), object);
     }
 
     @Override
-    public void update(PendingDTO object) {
+    public void update(TaskDTO object) {
         super.update(object.getId(), object);
 
     }
@@ -36,18 +33,19 @@ public class PendingServiceImpl extends AbstractMapService<PendingDTO, Long> imp
     }
 
     @Override
-    public void delete(PendingDTO object) {
+    public void delete(TaskDTO object) {
         super.delete(object);
 
     }
 
     @Override
-    public PendingDTO findById(Long id) {
+    public TaskDTO findById(Long id) {
         return super.findById(id);
     }
 
+
     @Override
-    public List<PendingDTO> findTaskByStatus(PendingDTO status) {
-        return super.findAll().stream().filter(task -> task.getProject().getAssignedManager().equals(status)).collect(Collectors.toList());
+    public List<TaskDTO> findTaskByStatus(TaskDTO status) {
+        return null;
     }
 }
